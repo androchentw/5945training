@@ -1,3 +1,8 @@
+<?php
+  // Require $posts, $categoryid
+  if(!isset($posts)) $posts=array();
+  if(!isset($categoryid)) $categoryid = 1;
+  ?>
 <!DOCTYPE html>
 <html lang="zh-tw"
     xmlns:fb="http://www.facebook.com/2008/fbml"
@@ -13,7 +18,7 @@
          <div class="row-fluid">
             <div class="span12">
               <!--Body content-->
-              <h1><a href="<?=site_url("/post")?>"><?=$pageTitle?></a></h1>
+              <h1><a href="<?=site_url("/category")?>"><?=$pageTitle?></a></h1>
               <table id="table_post" class="post-table table table-hover">
                 <tr>
                   <th>UserName</th>
@@ -35,7 +40,7 @@
                 <?php } ?>
               </table>
 
-              <a class="btn btn-primary" href="<?=site_url("post/new_")?>">發表新文章</a>
+              <a class="btn btn-primary" href="<?=site_url("post/new_/".htmlspecialchars($categoryid))?>">發表新文章</a>
             </div>
          </div>
       </div>  

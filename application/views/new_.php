@@ -1,9 +1,14 @@
 <?php
   // Require pageTitle
-  // Require db data: $username, $email, $content
+  // Require db data: $username, $email, $content, $categoryid
   if(!isset($username)) $username = "";
   if(!isset($email)) $email = "";
   if(!isset($content)) $content = "";
+  if(!isset($categoryid)) $categoryid = 1;
+
+  if($selector=="new_") $nextAction = "create/".htmlspecialchars($categoryid);
+  elseif($selector=="edit") $nextAction = "update/".htmlspecialchars($postid);
+  else $nextAction = "create/".htmlspecialchars($categoryid);
  ?>
 <!DOCTYPE html>
 <html lang="zh-tw"
@@ -20,22 +25,22 @@
          <div class="row-fluid">
             <div class="span12">
               <!--Body content-->
-              <h1><a href="<?=site_url("/post")?>"><?=$pageTitle?></a></h1>
+              <h1><a href="<?=site_url("category")?>"><?=$pageTitle?></a></h1>
               <?php if (isset($errmsg)) { ?>
                 <div class="alert alert-error">
                   <button type="button" class="close" data-dismiss="alert">&times;</button>
                   <strong><?=$errmsg?></strong>
                 </div>
                 <?php } ?>
-              <form id="form" name="new_form" action="<?=site_url("post/create")?>" method="post">
+              <form id="form" name="form" action="<?=site_url("post/".$nextAction)?>" method="post">
                 <fieldset>
                   <legend>發表新留言</legend>
                   <label>使用者名稱</label>
-                  <input id="new_username" name="new_username" type="text" placeholder="請輸入使用者名稱" value="<?=htmlspecialchars($username);?>">
+                  <input id="username" name="username" type="text" placeholder="請輸入使用者名稱" value="<?=htmlspecialchars($username);?>">
                   <label>Email</label>
-                  <input id="new_email" name="new_email" type="text" placeholder="請輸入 Email" value="<?=htmlspecialchars($email);?>">
+                  <input id="email" name="email" type="text" placeholder="請輸入 Email" value="<?=htmlspecialchars($email);?>">
                   <label>Content</label>
-                  <input id="new_content" name="new_content" type="text" placeholder="請輸入發文內容" value="<?=htmlspecialchars($content);?>">
+                  <input id="content" name="content" type="text" placeholder="請輸入發文內容" value="<?=htmlspecialchars($content);?>">
                   <button type="submit" class="btn btn-primary">送出</button>
                 </fieldset>
               </form>
@@ -55,8 +60,8 @@
   }
 
   function validateForm() {
-    var username = document.getElementById('new_username').value;
-    var content = document.getElementById('new_content').value;
+    var username = document.getElementById('username').value;
+    var content = document.getElementById('content').value;
     if (username=="" || content=="") {
       alert("使用者名稱、發文內容不得為空");
       return false;

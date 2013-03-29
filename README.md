@@ -21,4 +21,6 @@ Phase 2:
 
 	2) Delete article, jQuery .delegate() validate
 
+	3) Add Category
+
 	Date: 2013/3/29
