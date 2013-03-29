@@ -13,8 +13,8 @@
          <div class="row-fluid">
             <div class="span12">
               <!--Body content-->
-              <h1><a href="<?=site_url("/post")?>">Post - Andro's 5945 Intern Training Tutorial</a></h1>
-              <table class="post-table table table-hover">
+              <h1><a href="<?=site_url("/post")?>"><?=$pageTitle?></a></h1>
+              <table id="table_post" class="post-table table table-hover">
                 <tr>
                   <th>UserName</th>
                   <th>UserEmail</th>
@@ -28,8 +28,8 @@
                     <td><?=htmlspecialchars($post->Content)?></td>
                     <td><?=htmlspecialchars($post->CreateDate)?></td>
                     <td>
-                      <a class="btn btn-info" href="<?=site_url("post/edit/".$post->PostID)?>">編輯</a>
-                      <a class="btn btn-danger" href="<?=site_url("post/delete/".$post->PostID)?>" onclick="return confirmDelete()">刪除</a>
+                      <a id="btn" class="btn btn-info" href="<?=site_url("post/edit/".htmlspecialchars($post->PostID))?>">編輯</a>
+                      <a class="btn btn-danger btn-delete" href="<?=site_url("post/delete/".htmlspecialchars($post->PostID))?>">刪除</a>
                     </td>
                   </tr>
                 <?php } ?>
@@ -45,9 +45,13 @@
   <!-- home-body-container ends -->
 
 <script>
+  $("#table_post").delegate(".btn-delete", "click", function() {
+    return confirmDelete();
+  });
+
   function confirmDelete() {
     if(confirm("你確定要刪除這篇文章嗎?")) {
-      // delete it!
+      return true;
     } else {
       return false;
     }

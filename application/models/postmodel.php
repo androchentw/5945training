@@ -10,7 +10,7 @@ class PostModel extends CI_Model {
     }
 
     function find_by_id($postid) {
-        $this->db->select("5945post.*");
+        $this->db->select("*");
         $this->db->from("5945post");
         $this->db->where("PostID", $postid);
         $query = $this->db->get();
