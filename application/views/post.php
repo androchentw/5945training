@@ -18,7 +18,7 @@
          <div class="row-fluid">
             <div class="span12">
               <!--Body content-->
-              <h1><a href="<?=site_url("/category")?>"><?=$pageTitle?></a></h1>
+              <h1><a href="<?=site_url("/category")?>"><?=htmlspecialchars($title)?></a></h1>
               <table id="table_post" class="post-table table table-hover">
                 <tr>
                   <th>UserName</th>

@@ -1,5 +1,5 @@
 <?php
-  // Require pageTitle
+  // Require title
   // Require db data: $username, $email, $content, $categoryid
   if(!isset($username)) $username = "";
   if(!isset($email)) $email = "";
@@ -25,7 +25,7 @@
          <div class="row-fluid">
             <div class="span12">
               <!--Body content-->
-              <h1><a href="<?=site_url("category")?>"><?=$pageTitle?></a></h1>
+              <h1><a href="<?=site_url("category")?>"><?=htmlspecialchars($title)?></a></h1>
               <?php if (isset($errmsg)) { ?>
                 <div class="alert alert-error">
                   <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -36,11 +36,11 @@
                 <fieldset>
                   <legend>發表新留言</legend>
                   <label>使用者名稱</label>
-                  <input id="username" name="username" type="text" placeholder="請輸入使用者名稱" value="<?=htmlspecialchars($username);?>">
+                  <input id="username" name="username" type="text" placeholder="請輸入使用者名稱" value="<?=htmlspecialchars($username)?>">
                   <label>Email</label>
-                  <input id="email" name="email" type="text" placeholder="請輸入 Email" value="<?=htmlspecialchars($email);?>">
+                  <input id="email" name="email" type="text" placeholder="請輸入 Email" value="<?=htmlspecialchars($email)?>">
                   <label>Content</label>
-                  <input id="content" name="content" type="text" placeholder="請輸入發文內容" value="<?=htmlspecialchars($content);?>">
+                  <input id="content" name="content" type="text" placeholder="請輸入發文內容" value="<?=htmlspecialchars($content)?>">
                   <button type="submit" class="btn btn-primary">送出</button>
                 </fieldset>
               </form>

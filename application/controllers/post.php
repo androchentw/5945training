@@ -8,7 +8,7 @@ class Post extends CI_Controller {
 
 		$this->load->view('post', Array(
 			"selector" => "post",
-			"pageTitle" => $categoryName." - Andro's 5945 Intern Training Tutorial",
+			"title" => $categoryName." - Andro's 5945 Intern Training Tutorial",
 			"categoryid" => $categoryid,
 			"posts" => $posts
 		));
@@ -17,7 +17,7 @@ class Post extends CI_Controller {
 	public function new_($categoryid) {
 		$this->load->view("new_", Array(
 			"selector" => "new_",
-			"pageTitle" => "New - Andro's 5945 Intern Training Tutorial",
+			"title" => "New - Andro's 5945 Intern Training Tutorial",
 			"categoryid" => $categoryid
 		));
 	}
@@ -31,7 +31,7 @@ class Post extends CI_Controller {
 		if (empty($username) || empty($content)) {
 			$this->load->view("new_", Array(
 				"selector" => "create",
-				"pageTitle" => "New - Andro's 5945 Intern Training Tutorial",
+				"title" => "New - Andro's 5945 Intern Training Tutorial",
 				"errmsg" => "使用者名稱、發文內容不得為空",
 				"username" => $username,
 				"email" => $email,
@@ -51,7 +51,7 @@ class Post extends CI_Controller {
 
 		$this->load->view("new_", Array(
 			"selector" => "edit",
-			"pageTitle" => "Edit - Andro's 5945 Intern Training Tutorial",
+			"title" => "Edit - Andro's 5945 Intern Training Tutorial",
 			"postid" => $postid,
 			"username" => $post->UserName,
 			"email" => $post->UserEmail,
@@ -71,7 +71,7 @@ class Post extends CI_Controller {
 		if($username=="" || $content=="") {
 			$this->load->view("new_", Array(
 				"selector" => "update",
-				"pageTitle" => "Edit - Andro's 5945 Intern Training Tutorial",
+				"title" => "Edit - Andro's 5945 Intern Training Tutorial",
 				"errmsg" => "使用者名稱、發文內容不得為空",
 				"username" => $username,
 				"email" => $email,

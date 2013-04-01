@@ -24,3 +24,11 @@ Phase 2:
 	3) Add Category
 
 	Date: 2013/3/29
+
+Last Finetune
+
+	1) Add CategoryModel
+
+	2) Fix PostModel
+
+	Date 2013/4/1
